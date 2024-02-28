@@ -1,15 +1,15 @@
-public class DispensingState extends State {
+public class DispensingState implements State {
+    private VendingMachine machine;
     public DispensingState(VendingMachine machine) {
-        super(machine);
+        this.machine = machine;
     }
-
     @Override
-    void insertMoney(double amount) {
+    public void insertMoney(double amount) {
         throw new IllegalStateException("Already in dispense state. Cannot insert money right now");
     }
 
     @Override
-    double dispense(int rackNumber) {
+    public double dispense(int rackNumber) {
         throw new IllegalStateException("Already dispensing an item!");
     }
 }

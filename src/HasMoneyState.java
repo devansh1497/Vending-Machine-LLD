@@ -1,16 +1,17 @@
-public class HasMoneyState extends State {
+public class HasMoneyState implements State {
+    private VendingMachine machine;
     public HasMoneyState(VendingMachine machine) {
-        super(machine);
+        this.machine = machine;
     }
 
     @Override
-    void insertMoney(double amount) {
+    public void insertMoney(double amount) {
         this.machine.setAmount(this.machine.getAmount() + amount);
         System.out.println("Current balance: " + this.machine.getAmount());
     }
 
     @Override
-    double dispense(int rackNumber) {
+    public double dispense(int rackNumber) {
         Rack rack = this.machine.getRacks().stream().filter(r -> r.getNumber() == rackNumber).findFirst().get();
         if (rack.getItem().getAmount() > this.machine.getAmount()) {
             throw new IllegalStateException("Insufficient money!");

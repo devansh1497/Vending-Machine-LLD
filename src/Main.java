@@ -30,6 +30,6 @@ public class Main {
 
         vendingMachine.insertMoney(10);
         vendingMachine.insertMoney(1);
-        vendingMachine.dispense(1);
+        vendingMachine.dispense(2);
     }
 }

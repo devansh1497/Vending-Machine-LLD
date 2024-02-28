@@ -1,12 +1,6 @@
-abstract class State {
+interface State {
 
-    VendingMachine machine;
+    void insertMoney(double amount);
 
-    public State(VendingMachine machine) {
-        this.machine = machine;
-    }
-
-    abstract void insertMoney(double amount);
-
-    abstract double dispense(int rackNumber);
+    double dispense(int rackNumber);
 }
